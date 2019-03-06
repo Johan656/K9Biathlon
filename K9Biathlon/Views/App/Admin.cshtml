@@ -1,0 +1,9 @@
+﻿@model IEnumerable<Anmalan>
+
+<h1>Administration</h1>
+<p>Count: @Model.Count()</p>
+
+@foreach (var a in Model)
+{
+    <li>Datum: @a.AnmalningsDatum Namn: @a.Deltagare.FNamn</li>
+}

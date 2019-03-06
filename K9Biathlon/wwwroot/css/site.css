@@ -1,0 +1,70 @@
+﻿
+/******************Gemensamt*****************/
+
+
+/*input, textarea {
+    font-size: 14px;
+    width: 200px;
+}
+
+label {
+    font-size: 16px;
+}
+
+input[type=submit] {
+    width: auto;
+}*/
+
+/******************_Layout*****************/
+/*body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+    
+menu li {
+    display: inline;
+}
+
+menu li::after {
+    content: ' |';
+}
+
+menu li:last-of-type::after {
+    content: "";
+}*/
+
+/******************Startsida*****************/
+
+#imgDog {
+    width: 400px;
+    height: 200px;
+}
+
+.blog-header-logo {
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    font-size: 1.5rem;
+}
+
+.blog-header {
+    line-height: 1;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.carousel-item {
+    height: 70vh;  /*45*/
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    background-size: cover;
+    width: 100%;
+}
+
+div.container#K9Header {
+    width: 100% !important;
+    margin: 0 auto !important;
+}
+
+
+
+
+
+
+

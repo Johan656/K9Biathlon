@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Post>
+@inject IOptionsSnapshot<BlogSettings> settings
+@{
+    ViewBag.Title = "";
+    int currentPage = int.Parse(ViewContext.RouteData.Values["page"] as string ?? "0");
+}
+@foreach (var post in Model)
+{
+    await Html.RenderPartialAsync("Post.cshtml", post);
+}
+<nav class="pagination container" aria-label="Pagination">
+    @if (Model.Any())
+    {
+        //<a class="btn btn-primary" rel="prev" href="@ViewData["prev"]" title="Older posts">&laquo; Tidigare</a>
+        @*<input class="btn btn-primary" type="submit" value="Skicka meddelande" />*@
+    }
+    @if (currentPage > 0)
+    {
+        <a rel="next" href="@ViewData["next"]" title="Nya inlägg">Nya &raquo;</a>
+    }
+    <br /><br />
+    @section Head {
+        @if (Model.Any())
+        {
+            <link rel="prev" href="@ViewData["prev"]" />
+        }
+        @if (currentPage > 0)
+        {
+            <link rel="next" href="@ViewData["next"]" />
+        }
+    }
+</nav>
+@{await Html.RenderPartialAsync("_SocialSharing", ViewData["Title"]);}
