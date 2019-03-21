@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>K9 Biathlon Örebro: @ViewBag.Title</title>
+    <title>K9 Biathlon Örebro - Segersjö: @ViewBag.Title</title>
     <link href="~/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="~/css/site.css" rel="stylesheet" />
@@ -41,64 +41,49 @@
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner" role="listbox">
                     <!-- Slide One - Set the background image for this slide in the line below -->
-                    @*https://source.unsplash.com/RCAhiGJsUUE/1920x1080*@
-                    <div class="carousel-item active" style="background-image: url('../img/Segersjö1.jpg'); font-family:'Sitka Subheading'; font-size:4.5rem">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h3 class="display-2">K9 Biathlon Örebro</h3>
+                    <div class="carousel-item active " style="background-image: url('../img/@ViewBag.BackgroundImage'); font-family:'Sitka Subheading'; font-size:4.5rem">
+                        <div class="carousel-caption d-none d-md-block carouselAnimation">
+                            <h3 class="display-2">K9 Biathlon Örebro - Segersjö</h3>
                             <h4 class="display-4">2019</h4>
-                            @*<p class="lead">This is a description for the first slide.</p>*@
                         </div>
                     </div>
-                    <!-- Slide Two - Set the background image for this slide in the line below -->
-                    @*<div class="carousel-item" style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1920x1080')">
-            <div class="carousel-caption d-none d-md-block">
-                <h3 class="display-4">K9 Biathlon Örebro</h3>
-                <p class="lead">This is a description for the second slide.</p>
-            </div>
-        </div>*@
-                    <!-- Slide Three - Set the background image for this slide in the line below -->
-                    @*<div class="carousel-item" style="background-image: url('https://source.unsplash.com/O7fzqFEfLlo/1920x1080')">
-            <div class="carousel-caption d-none d-md-block">
-                <h3 class="display-4">K9 Biathlon Örebro</h3>
-                <p class="lead">This is a description for the third slide.</p>
-            </div>
-        </div>*@
                 </div>
             </div>
             @*<div class="row flex-nowrap justify-content-between align-items-center">
-            <div class="col-4 pt-1">
+                <div class="col-4 pt-1">
 
-            </div>
-            <div class="col-4 text-center">
-                <a class="blog-header-logo text-dark" href="#">K9 Biathlon Örebro</a>
-            </div>
-            <div class="col-4 d-flex justify-content-end align-items-center">
+                </div>
+                <div class="col-4 text-center">
+                    <a class="blog-header-logo text-dark" href="#">K9 Biathlon Örebro</a>
+                </div>
+                <div class="col-4 d-flex justify-content-end align-items-center">
 
-                @{
-                    string path = Context.Request.Path;
+                    @{
+                        string path = Context.Request.Path;
 
-                    if (User.Identity.IsAuthenticated)
-                    {
-                        <a asp-controller="Blog" asp-action="Edit">New post</a>
-                        <a href="~/logout/" title="Sign out as administrator">Sign out</a>
+                        if (User.Identity.IsAuthenticated)
+                        {
+                            <a asp-controller="Blog" asp-action="Edit">New post</a>
+                            <a href="~/logout/" title="Sign out as administrator">Sign out</a>
+                        }
+                        else
+                        {
+                            <a class="btn btn-sm btn-outline-secondary" href="~/login/?returnUrl=@path" rel="nofollow">Logga in</a>
+                        }
                     }
-                    else
-                    {
-                        <a class="btn btn-sm btn-outline-secondary" href="~/login/?returnUrl=@path" rel="nofollow">Logga in</a>
-                    }
-                }
 
-            </div>
-            </div>*@
+                </div>
+                </div>*@
         </header>
         <div class="nav-scroller py-1 mb-2">
 
             <nav class="nav d-flex justify-content-between">
+
                 <a class="p-2 text-muted underline" asp-controller="Blog" asp-action="Index">Start</a>
                 <a class="p-2 text-muted underline" asp-controller="App" asp-action="Regler">Regler</a>
-                <a class="p-2 text-muted underline" @*asp-controller="App" asp-action="Sponsorer"*@>Samarbetspartners</a>
-                <a class="p-2 text-muted underline" @*asp-controller="App" asp-action="Contact"*@>Kontakta</a>
-                <a class="p-2 text-muted underline" asp-controller="App" asp-action="About">Om K9 biathlon</a>
+                <a class="p-2 text-muted underline" asp-controller="App" asp-action="Sponsorer">Samarbetspartners</a>
+                <a class="p-2 text-muted underline" @*asp-controller="App" asp-action="Contact" *@>Kontakta</a>
+                <a class="p-2 text-muted underline" asp-controller="App" asp-action="About">Om oss</a>
                 @{
                     string path = Context.Request.Path;
 
@@ -117,6 +102,7 @@
         </div>
     </div>
 
+
     @*<main itemprop="mainEntity" itemscope itemtype="http://schema.org/Blog">*@
     <section class="container">
         <noscript>
@@ -128,11 +114,14 @@
     </section>
     <br />
     <footer class="container">
-        <div>
-            @*<p>
-                    Powered by <a href="https://github.com/madskristensen/Miniblog.Core" rel="noopener noreferrer" target="_blank">Miniblog.Core</a>
-                </p>*@
-            <div class="text-center">2019 K9 Biathlon Örebro</div>
+        <div class="row">
+            <div class="col-md-4">
+                <img id="img-fluid" class="" src="~/img/Logga.png" />
+            </div>
+            <section class="footerTextContainer col-md-6">
+                <p class="footerText" style="display:block">2019 K9 Biathlon Örebro - Segersjö</p>
+                @{await Html.RenderPartialAsync("_SocialSharing", ViewData["Title"]);}
+            </section>
         </div>
     </footer>
     <script src="~/~/node_modules/jquery/dist/jquery.min.js"></script>
@@ -140,7 +129,7 @@
     <script src="~/js/site.js"></script>
     <!-- This lazy loads the stylesheet in a non-render blocking way -->
     @*<link rel="preload" href="~/css/belowthefold.scss" as="style" />
-    <noscript><link rel="stylesheet" href="~/css/belowthefold.scss" /></noscript>*@
+        <noscript><link rel="stylesheet" href="~/css/belowthefold.scss" /></noscript>*@
     @RenderSection("scripts", false)
 </body>
 </html>

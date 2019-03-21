@@ -34,10 +34,6 @@ menu li:last-of-type::after {
 
 /******************Startsida*****************/
 
-#imgDog {
-    width: 400px;
-    height: 200px;
-}
 
 .blog-header-logo {
     font-family: "Playfair Display", Georgia, "Times New Roman", serif;
@@ -88,7 +84,11 @@ nav > ul > li > a {
     border-bottom: 3px solid #c0c5ce;
 }
 
-a.p-2.text-muted.underline {
+a.p-2.text-muted.underline { /*Removes blue square from link*/
+    outline: none;
+}
+
+#sponsorLink { /*Removes blue square from link*/
     outline: none;
 }
 
@@ -98,7 +98,42 @@ a.p-2.text-muted.underline {
     color: ghostwhite;
 }
 
+.logoImageContainer {
+    float: left;
+    max-width: 300px;
+    max-height: 300px;
+}
 
+.footerTextContainer {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: auto auto auto 1.5em;
+}
+
+.footerText {
+    margin: auto; /* Important */
+    text-align: center;
+}
+
+.socialsharing a {
+    display: inline-block !important;
+    margin-bottom: 0px !important;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.carouselAnimation {
+    animation: fade-in 1s ease;
+}
 
 
 

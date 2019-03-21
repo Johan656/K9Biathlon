@@ -33,6 +33,7 @@ namespace K9Biathlon.Controllers
         public async Task<IActionResult> Index([FromRoute]int page = 0)
         {
             var posts = await _blog.GetPosts(_settings.Value.PostsPerPage, _settings.Value.PostsPerPage * page);
+            ViewBag.BackgroundImage = "Segersjö1.jpg";
             ViewData["Title"] = _manifest.Name;
             ViewData["Description"] = _manifest.Description;
             ViewData["prev"] = $"/{page + 1}/";
@@ -44,6 +45,7 @@ namespace K9Biathlon.Controllers
         [OutputCache(Profile = "default")]
         public async Task<IActionResult> Category(string category, int page = 0)
         {
+            ViewBag.BackgroundImage = "Segersjö1.jpg";
             var posts = (await _blog.GetPostsByCategory(category)).Skip(_settings.Value.PostsPerPage * page).Take(_settings.Value.PostsPerPage);
             ViewData["Title"] = _manifest.Name + " " + category;
             ViewData["Description"] = $"Articles posted in the {category} category";
@@ -78,6 +80,7 @@ namespace K9Biathlon.Controllers
         [HttpGet, Authorize]
         public async Task<IActionResult> Edit(string id)
         {
+            ViewBag.BackgroundImage = "Segersjö1.jpg";
             ViewData["AllCats"] = (await _blog.GetCategories()).ToList();
 
             if (string.IsNullOrEmpty(id))

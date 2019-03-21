@@ -32,11 +32,13 @@ namespace K9Biathlon.Controllers
         [HttpGet()]
         public IActionResult Register()
         {
+            ViewBag.BackgroundImage = "Segersjö1.jpg";
             return View();
         }
 
         public IActionResult Regler()
         {
+            ViewBag.BackgroundImage = "Segersjö1.jpg";
             return View();
         }
 
@@ -59,6 +61,7 @@ namespace K9Biathlon.Controllers
 
         public IActionResult Sponsorer()
         {
+            ViewBag.BackgroundImage = "Segersjö1.jpg";
             return View();
         }
 
@@ -66,6 +69,7 @@ namespace K9Biathlon.Controllers
         [HttpGet()]
         public IActionResult Contact()
         {
+            ViewBag.BackgroundImage = "Segersjö1.jpg";
             return View();
         }
 
@@ -101,7 +105,8 @@ namespace K9Biathlon.Controllers
 
         [HttpGet("Om oss")]
         public IActionResult About()
-        {    
+        {
+            ViewBag.BackgroundImage = "Segersjö1.jpg";
             return View();
         }
     }
