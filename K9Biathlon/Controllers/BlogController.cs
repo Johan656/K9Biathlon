@@ -34,6 +34,8 @@ namespace K9Biathlon.Controllers
         {
             var posts = await _blog.GetPosts(_settings.Value.PostsPerPage, _settings.Value.PostsPerPage * page);
             ViewBag.BackgroundImage = "Segersjö1.jpg";
+            @ViewBag.BackgroundText1 = "K9 Biathlon Örebro - Segersjö";
+            @ViewBag.BackgroundText2 = "2019";
             ViewData["Title"] = _manifest.Name;
             ViewData["Description"] = _manifest.Description;
             ViewData["prev"] = $"/{page + 1}/";
