@@ -14,40 +14,40 @@ namespace K9Biathlon
 {
     public class Program
     {
-        //public static void Main(string[] args)
+        ////public static void Main(string[] args)
+        ////{
+        ////    var host = CreateWebHostBuilder(args).Build();
+
+        ////    RunSeeding(host);
+
+        ////    host.Run();
+        ////}
+
+        //private static void RunSeeding(IWebHost host)
         //{
-        //    var host = CreateWebHostBuilder(args).Build();
+        //    var scopeFactory = host.Services.GetService<IServiceScopeFactory>();
 
-        //    RunSeeding(host);
+        //    using (var scope = scopeFactory.CreateScope())
+        //    {
+        //        var seeder = scope.ServiceProvider.GetService<K9Seeder>();
+        //        seeder.Seed();
+        //    }
 
-        //    host.Run();
         //}
 
-        private static void RunSeeding(IWebHost host)
-        {
-            var scopeFactory = host.Services.GetService<IServiceScopeFactory>();
+        //public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        //    WebHost.CreateDefaultBuilder(args)
+        //        .ConfigureAppConfiguration(SetupConfiguration)
+        //        .UseStartup<Startup>();
 
-            using (var scope = scopeFactory.CreateScope())
-            {
-                var seeder = scope.ServiceProvider.GetService<K9Seeder>();
-                seeder.Seed();
-            }
+        //private static void SetupConfiguration(WebHostBuilderContext ctx, IConfigurationBuilder builder)
+        //{
+        //    // Removing the default configuration
+        //    builder.Sources.Clear();
 
-        }
-
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration(SetupConfiguration)
-                .UseStartup<Startup>();
-
-        private static void SetupConfiguration(WebHostBuilderContext ctx, IConfigurationBuilder builder)
-        {
-            // Removing the default configuration
-            builder.Sources.Clear();
-
-            builder.AddJsonFile("appsettings.json", false, true)
-                .AddXmlFile("config.xml", true)
-                .AddEnvironmentVariables();
-        }
+        //    builder.AddJsonFile("appsettings.json", false, true)
+        //        .AddXmlFile("config.xml", true)
+        //        .AddEnvironmentVariables();
+        //}
     }
 }

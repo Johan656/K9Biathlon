@@ -13,23 +13,29 @@ namespace K9Biathlon.Controllers
 {
     public class AppController : Controller
     {
-        private readonly IMailService _mailService;
-        private readonly IK9Repository _repository;
+        //private readonly IMailService _mailService;
+        //private readonly IK9Repository _repository;
 
-        public AppController(IMailService mailService, IK9Repository repository)
+        //public AppController(IMailService mailService, IK9Repository repository)
+        //{
+        //    //_mailService = mailService;
+        //    //_repository = repository;
+        //}
+
+        public AppController()
         {
-            _mailService = mailService;
-            _repository = repository;
+            //_mailService = mailService;
+            //_repository = repository;
         }
 
         public IActionResult Index()
         {
-            var result = _repository.getAllTavlingar();
+            //var result = _repository.getAllTavlingar();
             return View();
         }
 
         //[HttpGet("Registrera")]
-        [HttpGet()]
+        //[HttpGet()]
         public IActionResult Register()
         {
             ViewBag.BackgroundImage = "Segersjö1.jpg";
@@ -46,7 +52,7 @@ namespace K9Biathlon.Controllers
         }
 
 
-        [HttpPost()]
+        //[HttpPost()]
         public IActionResult Register(object model)
         {
             if(ModelState.IsValid)
@@ -62,9 +68,10 @@ namespace K9Biathlon.Controllers
             return View();
         }
 
+        //[Route("/App/Sponsorer", Name = "Samarbetspartners")]
         public IActionResult Sponsorer()
         {
-            ViewBag.BackgroundImage = "Segersjö1.jpg";
+            ViewBag.BackgroundImage = "banträning-5083.jpg";
             @ViewBag.BackgroundText1 = "Samarbetspartners";
             return View();
         }
@@ -83,7 +90,7 @@ namespace K9Biathlon.Controllers
             if(ModelState.IsValid)
             {
                 // Send Email
-                _mailService.SendMessage("johanohberg6@gmail.com", model.Subject, $"From: {model.Name} - {model.Email}, Message: {model.Message}");
+                //_mailService.SendMessage("johanohberg6@gmail.com", model.Subject, $"From: {model.Name} - {model.Email}, Message: {model.Message}");
                 ViewBag.UserMessage = "E-post skickad";
                 ModelState.Clear();
             }
@@ -97,20 +104,22 @@ namespace K9Biathlon.Controllers
 
         public IActionResult Admin()
         {
-            var results = _repository.getAllAnmalningar();
+            //var results = _repository.getAllAnmalningar();
 
-            return View(results);
+            return View();
         }
 
         public IActionResult Anmalan()
         {
+            ViewBag.BackgroundImage = "banträning-5260k.jpg";
+            @ViewBag.BackgroundText1 = "Anmälan";
             return View();
         }
 
         [HttpGet("Om oss")]
         public IActionResult About()
         {
-            ViewBag.BackgroundImage = "Segersjö1.jpg";
+            ViewBag.BackgroundImage = "banträning-5242-2k.jpg";
             @ViewBag.BackgroundText1 = "Om oss";
             return View();
         }

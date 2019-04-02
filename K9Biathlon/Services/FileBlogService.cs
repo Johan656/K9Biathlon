@@ -17,16 +17,21 @@ namespace K9Biathlon.Services
 {
     public class FileBlogService : IBlogService
     {
-        private const string POSTS = "Posts";
+        private const string POSTS = "wwwroot\\Posts";
         private const string FILES = "files";
 
         private readonly List<Post> _cache = new List<Post>();
         private readonly IHttpContextAccessor _contextAccessor;
+        private IHostingEnvironment _hostingEnvironment;
         private readonly string _folder;
 
-        public FileBlogService(IHostingEnvironment env, IHttpContextAccessor contextAccessor)
+        public FileBlogService(IHostingEnvironment enviroment, IHttpContextAccessor contextAccessor)
         {
-            _folder = Path.Combine(env.WebRootPath, POSTS);
+            _hostingEnvironment = enviroment;
+            if(_hostingEnvironment != null)
+            {
+                _folder = Path.Combine(enviroment.ContentRootPath, POSTS);
+            }
             _contextAccessor = contextAccessor;
 
             Initialize();

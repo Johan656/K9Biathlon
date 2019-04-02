@@ -7,33 +7,34 @@
 <html>
 <head>
     <title>K9 Biathlon Örebro - Segersjö: @ViewBag.Title</title>
-    <link href="~/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+    @*<link href="~/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />*@
+    @*<link href="~/node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet" />*@
     <link href="~/css/site.css" rel="stylesheet" />
     <meta charset="utf-8" />
-        <title>@ViewData["Title"]</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="@ViewData["Description"]" />
-        <link rel="preload" href="~/js/site.js" as="script" />
-        <link rel="preload" href="~/css/belowthefold.scss" as="style" />
-        <noscript><link rel="stylesheet" href="~/css/belowthefold.scss" /></noscript>
-        @RenderSection("Preload", required: false)
-        <link rel="stylesheet" href="~/css/abovethefold.scss" inline />
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="@ViewData["Title"]" />
-        <meta property="og:description" content="@ViewData["Description"]" />
-        <meta property="og:url" content="@(host + Context.Request.Path)" />
-        <meta property="og:image" content="@host/img/icon512x512.png" />
-        <meta property="og:image:width" content="512" />
-        <meta property="og:image:height" content="512" />
-        <meta name="msapplication-square150x150logo" content="~/img/icon180x180.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="~/img/icon16x16.png" />
-        <link rel="apple-touch-icon" href="~/img/icon180x180.png" />
-        <link rel="shortcut icon" href="~/img/icon16x16.png" />
-        <link rel="edituri" type="application/rsd+xml" title="RSD" href="~/rsd.xml" />
-        <link rel="alternate" type="application/rss+xml" href="~/feed/rss/" />
-        <link rel="alternate" type="application/atom+xml" href="~/feed/atom/" />
-        @RenderSection("Head", required: false)
+    <title>@ViewData["Title"]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="@ViewData["Description"]" />
+    <link rel="preload" href="~/js/site.js" as="script" />
+    <link rel="preload" href="~/css/belowthefold.scss" as="style" />
+    <noscript><link rel="stylesheet" href="~/css/belowthefold.scss" /></noscript>
+    @RenderSection("Preload", required: false)
+    <link rel="stylesheet" href="~/css/abovethefold.scss" inline />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="@ViewData["Title"]" />
+    <meta property="og:description" content="@ViewData["Description"]" />
+    <meta property="og:url" content="@(host + Context.Request.Path)" />
+    <meta property="og:image" content="@host/img/icon512x512.png" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta name="msapplication-square150x150logo" content="~/img/icon180x180.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="~/img/icon16x16.png" />
+    <link rel="apple-touch-icon" href="~/img/icon180x180.png" />
+    <link rel="shortcut icon" href="~/img/icon16x16.png" />
+    <link rel="edituri" type="application/rsd+xml" title="RSD" href="~/rsd.xml" />
+    <link rel="alternate" type="application/rss+xml" href="~/feed/rss/" />
+    <link rel="alternate" type="application/atom+xml" href="~/feed/atom/" />
+    @RenderSection("Head", required: false)
 </head>
 <body>
     <div id="K9Header" class="container">
@@ -44,45 +45,26 @@
                     <div class="carousel-item active" style="background-image: url('../img/Bakgrundsbilder/@ViewBag.BackgroundImage');">
                         <div class="backgroundFilter">
                             <div class="carousel-caption d-none d-md-block carouselAnimation">
-                                <h3 class="display-2">@ViewBag.BackgroundText1</h3>
+                                <h3 class="display-3">@ViewBag.BackgroundText1</h3>
                                 <h4 class="display-4">@ViewBag.BackgroundText2</h4>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            @*<div class="row flex-nowrap justify-content-between align-items-center">
-                <div class="col-4 d-flex justify-content-end align-items-center">
-
-                    @{
-                        string path = Context.Request.Path;
-
-                        if (User.Identity.IsAuthenticated)
-                        {
-                            <a asp-controller="Blog" asp-action="Edit">New post</a>
-                            <a href="~/logout/" title="Sign out as administrator">Sign out</a>
-                        }
-                        else
-                        {
-                            <a class="btn btn-sm btn-outline-secondary" href="~/login/?returnUrl=@path" rel="nofollow">Logga in</a>
-                        }
-                    }
-
-                </div>
-        </div>*@
         </header>
-        <div class="nav-scroller py-1 mb-2">
+        <div class="nav-scroller py-1 mb-2 col-md-6">
             <nav class="k9navbar navbar navbar-expand-lg navbar-light">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav container">
-                        <a class="nav-item nav-link activ text-muted underline" asp-controller="Blog" asp-action="Index">Start</a>
-                        <a class="nav-item nav-link activ text-muted underline" asp-controller="App" asp-action="Regler">Regler</a>
-                        <a class="nav-item nav-link activ text-muted underline" asp-controller="App" asp-action="Sponsorer">Samarbetspartners</a>
-                        <a class="nav-item nav-link activ text-muted underline" @*asp-controller="App" asp-action="Contact" *@>Kontakta</a>
-                        <a class="nav-item nav-link activ text-muted underline" asp-controller="App" asp-action="About">Om oss</a>
+                        <a class="nav-item nav-link text-muted underline" is-active-route asp-controller="Blog" asp-action="Index"><span>Start</span></a>
+                        <a class="nav-item nav-link text-muted underline" is-active-route asp-controller="App" asp-action="Regler"><span>Regler</span></a>
+                        <a class="nav-item nav-link text-muted underline" is-active-route asp-controller="App" asp-action="Sponsorer"><span>Samarbetspartners</span></a>
+                        <a class="nav-item nav-link activ text-muted underline" is-active-route asp-controller="App" asp-action="Anmalan"><span>Anmälan</span></a>
+                        <a class="nav-item nav-link activ text-muted underline" is-active-route asp-controller="App" asp-action="About"><span>Om oss</span></a>
                         @{
                             string path = Context.Request.Path;
 
@@ -97,13 +79,13 @@
                             }
                         }
                     </div>
-
                 </div>
             </nav>
-
         </div>
     </div>
-
+    <div class="logoImageContainer">
+        <img id="" class="" src="~/img/Logga.png" />
+    </div>
 
     @*<main itemprop="mainEntity" itemscope itemtype="http://schema.org/Blog">*@
     <section class="container">
@@ -117,21 +99,27 @@
     <br />
     <footer class="container">
         <div class="row">
-            <div class="col-md-4">
-                <img id="img-fluid" class="" src="~/img/Logga.png" />
+            <div class="footerTextContainer  col-md-12">
+                <p class="footerText">K9 Biathlon Örebro - Segersjö 2019 @{await Html.RenderPartialAsync("_SocialSharing", ViewData["Title"]);}</p>
             </div>
-            <section class="footerTextContainer col-md-6">
-                <p class="footerText" style="display:block">2019 K9 Biathlon Örebro - Segersjö</p>
-                @{await Html.RenderPartialAsync("_SocialSharing", ViewData["Title"]);}
-            </section>
         </div>
     </footer>
-    <script src="~/~/node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="~/~/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    @*<script src="~/~/node_modules/jquery/dist/jquery.min.js"></script>*@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script>
+    @*<script src="~/~/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@
     <script src="~/js/site.js"></script>
     <!-- This lazy loads the stylesheet in a non-render blocking way -->
-    @*<link rel="preload" href="~/css/belowthefold.scss" as="style" />
-        <noscript><link rel="stylesheet" href="~/css/belowthefold.scss" /></noscript>*@
     @RenderSection("scripts", false)
+    <script>
+        $(document).ready(function () {
+            $("a").on("click touchend", function (e) {
+                var el = $(this);
+                var link = el.attr("href");
+                window.location = link;
+            });
+        });
+</script>
 </body>
 </html>

@@ -54,19 +54,19 @@ namespace K9Biathlon
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<K9Context>(cfg => 
-            {
-                cfg.UseSqlServer(_config.GetConnectionString("K9ConnectionString"));
-            });
+            //services.AddDbContext<K9Context>(cfg => 
+            //{
+            //    cfg.UseSqlServer(_config.GetConnectionString("K9ConnectionString"));
+            //});
 
-            services.AddTransient<K9Seeder>();
-            services.AddScoped<IK9Repository, K9Repository>();
+            //services.AddTransient<K9Seeder>();
+            //services.AddScoped<IK9Repository, K9Repository>();
 
-            // dummy mail service
-            services.AddTransient<IMailService, NullMailServices>();
-            // Support for real mail service
+            //// dummy mail service
+            //services.AddTransient<IMailService, NullMailServices>();
+            //// Support for real mail service
 
-            services.AddMvc();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddSingleton<IUserServices, BlogUserServices>();
             services.AddSingleton<IBlogService, FileBlogService>();
@@ -158,10 +158,10 @@ namespace K9Biathlon
             app.UseOutputCaching();
             app.UseWebMarkupMin();
 
-            ServeFromDirectory(app, env, "wwwroot/node_modules");
+            //ServeFromDirectory(app, env, "node_modules");
 
             app.UseStaticFiles();
-           // app.UseNodeModules(env);
+            //app.UseNodeModules(env);
 
             app.UseMvc(routes =>
             {
@@ -178,8 +178,8 @@ namespace K9Biathlon
 
             using (var scope = scopeFactory.CreateScope())
             {
-                var seeder = scope.ServiceProvider.GetService<K9Seeder>();
-                seeder.Seed();
+                //var seeder = scope.ServiceProvider.GetService<K9Seeder>();
+                //seeder.Seed();
             }
 
         }
@@ -191,7 +191,7 @@ namespace K9Biathlon
 
             builder.AddJsonFile("appsettings.json", false, true)
                 .AddXmlFile("config.xml", true)
-                .AddEnvironmentVariables();
+                .AddEnvironmentVariables(); 
         }
 
 
@@ -200,7 +200,7 @@ namespace K9Biathlon
             app.UseStaticFiles(new StaticFileOptions
             {
                 FileProvider = new PhysicalFileProvider(
-                    Path.Combine(env.ContentRootPath, path)
+                    Path.Combine(env.WebRootPath, path)
                 ),
                 RequestPath = "/" + path
             });

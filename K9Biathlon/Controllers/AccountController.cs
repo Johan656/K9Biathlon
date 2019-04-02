@@ -28,6 +28,7 @@ namespace K9Biathlon.Controllers
         [HttpGet]
         public IActionResult Login(string returnUrl = null)
         {
+            ViewBag.BackgroundImage = "Segersjö1.jpg";
             ViewData["ReturnUrl"] = returnUrl;
             return View();
         }

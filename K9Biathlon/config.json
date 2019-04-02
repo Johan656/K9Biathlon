@@ -3,9 +3,9 @@
   //  "K9ConnectionString": "server=DESKTOP-25HDOHO\SQLEXPRESS;Database=K9BiathlonDb;Integrated Security=true;MultipleActiveResultSets=true;"
   //},
 
-  "ConnectionStrings": {
-    "K9ConnectionString": "Server=DESKTOP-25HDOHO\\SQLEXPRESS;Database=K9BiathlonDb;Trusted_Connection=True;MultipleActiveResultSets=true"
-  },
+  //"ConnectionStrings": {
+  //  "K9ConnectionString": "Server=DESKTOP-25HDOHO\\SQLEXPRESS;Database=K9BiathlonDb;Trusted_Connection=True;MultipleActiveResultSets=true"
+  //},
 
   "Logging": {
     "LogLevel": {

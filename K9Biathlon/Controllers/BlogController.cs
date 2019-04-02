@@ -61,6 +61,7 @@ namespace K9Biathlon.Controllers
         [HttpGet]
         public IActionResult Redirects(string slug)
         {
+            ViewBag.BackgroundImage = "Segersjö1.jpg";
             return LocalRedirectPermanent($"/blog/{slug}");
         }
 
@@ -68,6 +69,7 @@ namespace K9Biathlon.Controllers
         [OutputCache(Profile = "default")]
         public async Task<IActionResult> Post(string slug)
         {
+            ViewBag.BackgroundImage = "Segersjö1.jpg";
             var post = await _blog.GetPostBySlug(slug);
 
             if (post != null)
@@ -104,6 +106,7 @@ namespace K9Biathlon.Controllers
         [HttpPost, Authorize, AutoValidateAntiforgeryToken]
         public async Task<IActionResult> UpdatePost(Post post)
         {
+            ViewBag.BackgroundImage = "Segersjö1.jpg";
             if (!ModelState.IsValid)
             {
                 return View("Edit", post);
@@ -177,6 +180,7 @@ namespace K9Biathlon.Controllers
         [HttpPost]
         public async Task<IActionResult> AddComment(string postId, Comment comment)
         {
+            ViewBag.BackgroundImage = "Segersjö1.jpg";
             var post = await _blog.GetPostById(postId);
 
             if (!ModelState.IsValid)
