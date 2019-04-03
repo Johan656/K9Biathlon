@@ -94,14 +94,19 @@ navbar > ul > li > a {
     justify-content: space-between;
 }
 
+.active {
+    border-bottom: 3px solid #c0c5ce;
+}
+
 .underline:hover::after {
-    content: '';
+    /*content: '';
     position: absolute;
     width: 100%;
     height: 0;
     left: 0;
-    bottom: 0px; /*Change this to increase/decrease distance*/
-    border-bottom: 3px solid #c0c5ce;
+    bottom: 0px; 
+    border-bottom: 3px solid #c0c5ce;*/
+    background-color: red !important;
 }
 
 @media screen and (max-width: 960px) {
@@ -109,9 +114,6 @@ navbar > ul > li > a {
         border-bottom: none;
     }
 }
-
-
-
 
 
 #sponsorLink { /*Removes blue square from link*/

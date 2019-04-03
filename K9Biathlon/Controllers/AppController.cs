@@ -24,25 +24,17 @@ namespace K9Biathlon.Controllers
 
         public AppController()
         {
-            //_mailService = mailService;
-            //_repository = repository;
+
         }
 
         public IActionResult Index()
         {
-            //var result = _repository.getAllTavlingar();
+
             return View();
         }
 
-        //[HttpGet("Registrera")]
-        //[HttpGet()]
-        public IActionResult Register()
-        {
-            ViewBag.BackgroundImage = "Segersjö1.jpg";
 
-            return View();  
-        }
-
+        [Route("Regler")]
         public IActionResult Regler()
         {
             ViewBag.BackgroundImage = "Hund.jpg";
@@ -52,53 +44,11 @@ namespace K9Biathlon.Controllers
         }
 
 
-        //[HttpPost()]
-        public IActionResult Register(object model)
-        {
-            if(ModelState.IsValid)
-            {
-                // Do something
-              
-            } 
-            else
-            {
-                // Show error 
-            }
-
-            return View();
-        }
-
-        //[Route("/App/Sponsorer", Name = "Samarbetspartners")]
-        public IActionResult Sponsorer()
+        [Route("Samarbetspartners")]
+        public IActionResult Samarbetspartners()
         {
             ViewBag.BackgroundImage = "banträning-5083.jpg";
             @ViewBag.BackgroundText1 = "Samarbetspartners";
-            return View();
-        }
-
-        //[HttpGet("Kontakt")]
-        [HttpGet()]
-        public IActionResult Contact()
-        {
-            ViewBag.BackgroundImage = "Segersjö1.jpg";
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Contact(ContactViewModel model)
-        {
-            if(ModelState.IsValid)
-            {
-                // Send Email
-                //_mailService.SendMessage("johanohberg6@gmail.com", model.Subject, $"From: {model.Name} - {model.Email}, Message: {model.Message}");
-                ViewBag.UserMessage = "E-post skickad";
-                ModelState.Clear();
-            }
-            else
-            {
-                // Show error 
-            }
-
             return View();
         }
 
@@ -109,6 +59,7 @@ namespace K9Biathlon.Controllers
             return View();
         }
 
+        [Route("Anmalan")]
         public IActionResult Anmalan()
         {
             ViewBag.BackgroundImage = "banträning-5260k.jpg";
@@ -116,8 +67,8 @@ namespace K9Biathlon.Controllers
             return View();
         }
 
-        [HttpGet("Om oss")]
-        public IActionResult About()
+        [Route("Om")]
+        public IActionResult Om()
         {
             ViewBag.BackgroundImage = "banträning-5242-2k.jpg";
             @ViewBag.BackgroundText1 = "Om oss";
