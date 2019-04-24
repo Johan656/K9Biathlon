@@ -28,20 +28,20 @@ namespace K9Biathlon.Controllers
             _manifest = manifest;
         }
 
-        [Route("/{page:int?}")]
-        [OutputCache(Profile = "default")]
-        public async Task<IActionResult> Index([FromRoute]int page = 0)
-        {
-            var posts = await _blog.GetPosts(_settings.Value.PostsPerPage, _settings.Value.PostsPerPage * page);
-            ViewBag.BackgroundImage = "Segersjö1.jpg";
-            @ViewBag.BackgroundText1 = "K9 Biathlon Örebro - Segersjö";
-            @ViewBag.BackgroundText2 = "2019";
-            ViewData["Title"] = _manifest.Name;
-            ViewData["Description"] = _manifest.Description;
-            ViewData["prev"] = $"/{page + 1}/";
-            ViewData["next"] = $"/{(page <= 1 ? null : page - 1 + "/")}";
-            return View("~/Views/Blog/Index.cshtml", posts);
-        }
+        //[Route("/{page:int?}")]
+        //[OutputCache(Profile = "default")]
+        //public async Task<IActionResult> Index([FromRoute]int page = 0)
+        //{
+        //    var posts = await _blog.GetPosts(_settings.Value.PostsPerPage, _settings.Value.PostsPerPage * page);
+        //    ViewBag.BackgroundImage = "Segersjö1.jpg";
+        //    @ViewBag.BackgroundText1 = "K9 Biathlon Örebro - Segersjö";
+        //    @ViewBag.BackgroundText2 = "2019";
+        //    ViewData["Title"] = _manifest.Name;
+        //    ViewData["Description"] = _manifest.Description;
+        //    ViewData["prev"] = $"/{page + 1}/";
+        //    ViewData["next"] = $"/{(page <= 1 ? null : page - 1 + "/")}";
+        //    return View("~/Views/Blog/Index.cshtml", posts);
+        //}
 
         [Route("/blog/category/{category}/{page:int?}")]
         [OutputCache(Profile = "default")]

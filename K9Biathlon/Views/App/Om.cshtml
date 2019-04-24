@@ -1,6 +1,8 @@
 ﻿@{
     ViewBag.Title = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 
 <!-- Page Content -->
 <div class="container">
@@ -21,8 +23,8 @@
 
                 Vill du vara med om en häftig upplevelse tillsammans med din hund då är detta grejen för dig!
 
-                ska det springas, klättras, krypas, köras hund i skottkärra m.m. för att på olika sätt utmana hund och förare. 
-                
+                ska det springas, klättras, krypas, köras hund i skottkärra m.m. för att på olika sätt utmana hund och förare.
+
             </p>
         </div>
 
@@ -34,31 +36,68 @@
     <div class="row">
 
         <div class="col-md-3 col-sm-6 mb-4">
-            <a>
-                <img id="imgDog" class="img-fluid img-thumbnail" src="~/img/banträning-5260.jpg" alt="Hund" />
-            </a>
+            <img id="imgDog1" class="img-fluid img-thumbnail imgDog" src="~/img/banträning-5260.jpg" alt="Hund" onclick="openModal(this.id)" />
         </div>
 
         <div class="col-md-3 col-sm-6 mb-4">
-            <a>
-                <img id="imgDog" class="img-fluid img-thumbnail" src="~/img/banträning-5242-2.jpg" alt="Hund" />
-            </a>
+            <img id="imgDog2" class="img-fluid img-thumbnail imgDog" src="~/img/banträning-5242-2.jpg" alt="Hund" onclick="openModal(this.id)" />
         </div>
 
         <div class="col-md-3 col-sm-6 mb-4">
-            <a>
-                <img id="imgDog" class="img-fluid img-thumbnail" src="~/img/banträning-5052.jpg" alt="Hund" />
-            </a>
+            <img id="imgDog3" class="img-fluid img-thumbnail imgDog" src="~/img/banträning-5052.jpg" alt="Hund" onclick="openModal(this.id)"/>
         </div>
 
         <div class="col-md-3 col-sm-6 mb-4">
-            <a>
-                <img id="imgDog" class="img-fluid img-thumbnail" src="~/img/banträning-5098.jpg" alt="Hund" />
-            </a>
+            <img id="imgDog4" class="img-fluid img-thumbnail imgDog" src="~/img/banträning-5098.jpg" alt="Hund" onclick="openModal(this.id)"/>
         </div>
 
     </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01" />
+
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+
     <!-- /.row -->
 
 </div>
 <!-- /.container -->
+
+
+@section scripts {
+
+    <script>
+
+        // Get the modal
+        
+
+        function openModal(id) {
+            var modal = document.getElementById('myModal');
+            var img = document.getElementById(id);
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+
+            modal.style.display = "block";
+            modalImg.src = img.src;
+            captionText.innerHTML = this.alt;
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+        }
+
+    </script>
+}
+

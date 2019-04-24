@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Net.Http.Headers;
 using K9Biathlon.Data;
 using K9Biathlon.Services;
 using Microsoft.Extensions.Configuration;
@@ -160,14 +161,23 @@ namespace K9Biathlon
 
             //ServeFromDirectory(app, env, "node_modules");
 
-            app.UseStaticFiles();
+            //app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                OnPrepareResponse = ctx =>
+                {
+                    const int durationInSeconds = 60 * 60 * 24;
+                    ctx.Context.Response.Headers[HeaderNames.CacheControl] =
+                        "public,max-age=" + durationInSeconds;
+                }
+            });
             //app.UseNodeModules(env);
 
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Blog}/{action=Index}/{id?}");
+                    template: "{controller=App}/{action=Index}/{id?}");
             });
 
         }
@@ -202,7 +212,14 @@ namespace K9Biathlon
                 FileProvider = new PhysicalFileProvider(
                     Path.Combine(env.WebRootPath, path)
                 ),
-                RequestPath = "/" + path
+                RequestPath = "/" + path,
+
+                OnPrepareResponse = ctx =>
+                {
+                    const int durationInSeconds = 60 * 60 * 24;
+                    ctx.Context.Response.Headers[HeaderNames.CacheControl] =
+                        "public,max-age=" + durationInSeconds;
+                }
             });
         }
     }

@@ -29,7 +29,9 @@ namespace K9Biathlon.Controllers
 
         public IActionResult Index()
         {
-
+            ViewBag.BackgroundImage = "Segersjö1.jpg";
+            @ViewBag.BackgroundText1 = "K9 Biathlon Örebro - Segersjö";
+            @ViewBag.BackgroundText2 = "2019";
             return View();
         }
 
@@ -37,7 +39,7 @@ namespace K9Biathlon.Controllers
         [Route("Regler")]
         public IActionResult Regler()
         {
-            ViewBag.BackgroundImage = "Hund.jpg";
+            ViewBag.BackgroundImage = "Segersjo_tavling_liten.jpg";
             @ViewBag.BackgroundText1 = "Regler";
 
             return View();
@@ -47,7 +49,7 @@ namespace K9Biathlon.Controllers
         [Route("Samarbetspartners")]
         public IActionResult Samarbetspartners()
         {
-            ViewBag.BackgroundImage = "banträning-5083.jpg";
+            ViewBag.BackgroundImage = "banträning-5083-liten.jpg";
             @ViewBag.BackgroundText1 = "Samarbetspartners";
             return View();
         }
@@ -62,7 +64,7 @@ namespace K9Biathlon.Controllers
         [Route("Anmalan")]
         public IActionResult Anmalan()
         {
-            ViewBag.BackgroundImage = "banträning-5260k.jpg";
+            ViewBag.BackgroundImage = "Segersjo_tavling_6_liten.jpg";
             @ViewBag.BackgroundText1 = "Anmälan";
             return View();
         }
@@ -70,7 +72,7 @@ namespace K9Biathlon.Controllers
         [Route("Om")]
         public IActionResult Om()
         {
-            ViewBag.BackgroundImage = "banträning-5242-2k.jpg";
+            ViewBag.BackgroundImage = "banträning-5186-liten.jpg";
             @ViewBag.BackgroundText1 = "Om oss";
             return View();
         }

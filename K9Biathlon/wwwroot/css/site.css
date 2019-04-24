@@ -40,10 +40,10 @@ menu li:last-of-type::after {
     font-size: 1.5rem;
 }
 
-.blog-header {
+/*.blog-header {
     line-height: 1;
     border-bottom: 1px solid #e5e5e5;
-}
+}*/
 
 .carousel-item {
     height: 70vh;  /*45*/
@@ -98,17 +98,6 @@ navbar > ul > li > a {
     border-bottom: 3px solid #c0c5ce;
 }
 
-.underline:hover::after {
-    /*content: '';
-    position: absolute;
-    width: 100%;
-    height: 0;
-    left: 0;
-    bottom: 0px; 
-    border-bottom: 3px solid #c0c5ce;*/
-    background-color: red !important;
-}
-
 @media screen and (max-width: 960px) {
     .underline:hover::after {
         border-bottom: none;
@@ -116,46 +105,71 @@ navbar > ul > li > a {
 }
 
 
-#sponsorLink { /*Removes blue square from link*/
+.sponsorLink { /*Removes blue square from link*/
     outline: none;
+    border:none;
+    margin-bottom: 1.5em;
 }
 
 .logoImageContainer {
-    float: left;
-    width: 250px;
-    height: 250px;
-    max-width: 300px;
-    max-height: 300px;
+    float: right; 
+    width: 300px;
+    height: 300px;
+    max-width: 350px;
+    max-height: 350px;
     /*background-color: red;*/
-    margin-top: -3.5em;
-    margin-left: 2em;
+    margin-top: 3.0em;
+    margin-right: 3.5em;
     z-index: 10;
 }
-
 
 #imgLogo {
     max-width: 300px;
     max-height: 300px;
 }
 
+@media screen and (min-width: 2000px) {
+    .logoImageContainer {
+        float: right;
+        width: 400px;
+        height: 400px;
+        max-width: 400px;
+        max-height: 400px;
+        /*background-color: red;*/
+        margin-top: 3.0em;
+        margin-right: 3.5em;
+        z-index: 10;
+    }
+
+    #imgLogo {
+        max-width: 400px;
+        max-height: 400px;
+    }
+}
+
+
+
+
 @media screen and (max-width: 1540px) {
+
     .logoImageContainer {
         /*background-color: green;*/
-        margin-top: -3.5em;
-        margin-left: 0em;
+        margin-top: 3.0em;
+        margin-right: 3.5em;
     }
 }
 
 @media screen and (max-width: 1430px) {
+
     .logoImageContainer {
-        float: left;
-        width: 200px;
-        height: 200px;
-        max-width: 200px;
-        max-height: 200px;
-        /*background-color: green;*/
-        margin-top: -3.5em;
-        margin-left: 0em;
+        float: right;
+        width: 300px;
+        height: 300px;
+        max-width: 350px;
+        max-height: 350px;
+        /*background-color: gray;*/
+        margin-top: 3.0em;
+        margin-right: 3.5em;
     }
 
     #imgLogo {
@@ -166,7 +180,7 @@ navbar > ul > li > a {
 
 @media screen and (max-width: 1295px) {
     .logoImageContainer {
-        float: right;
+        float: right; 
         width: 200px;
         height: 200px;
         /*background-color: blue;*/
@@ -180,14 +194,14 @@ navbar > ul > li > a {
     }
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1270px) {
     .logoImageContainer {
         float: right;
         width: 150px;
         height: 150px;
         /*background-color: yellow;*/
-        margin-top: -3.5em;
-        margin-right: 1em;
+        margin-top: 1em;
+        margin-right: 3em;
     }
 
     #imgLogo {
@@ -196,13 +210,31 @@ navbar > ul > li > a {
     }
 }
 
-@media screen and (max-width: 560px) {
+@media screen and (max-width: 1200px) {
     .logoImageContainer {
         float: right;
         width: 100px;
         height: 100px;
         /*background-color: purple;*/
         position:relative;
+        margin-top: -0.8em;
+        margin-right: 3em;
+    }
+
+    #imgLogo {
+        max-width: 100px;
+        max-height: 100px;
+    }
+
+}
+
+@media screen and (max-width: 980px) {
+    .logoImageContainer {
+        float: right;
+        width: 100px;
+        height: 100px;
+        /*background-color: orange;*/
+        position: relative;
         margin-top: -60px;
         margin-right: 1em;
     }
@@ -212,6 +244,14 @@ navbar > ul > li > a {
         max-height: 100px;
     }
 }
+
+@media screen and (max-width: 745px) {
+    h3#captionText1.display-3 {
+        color: white;
+        font-size: 1.0rem;
+    }
+}
+
 
 .footerTextContainer {
     display: flex;
@@ -265,10 +305,141 @@ navbar > ul > li > a {
 }
 
 .carousel-item.active {
-    /*background-image: url('../img/Bakgrundsbilder/@ViewBag.BackgroundImage');*/
     z-index: -10;
     position: relative;
 }
+
+.footerLine {
+    border-top: 1px solid #dfdfdf;
+    padding-top: .5em;
+    clear: both;
+}
+
+/*-------------------------------------------------LIGHTBOX---------------------------------------------*/
+
+/* Style the Image Used to Trigger the Modal */
+.imgDog {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+    .imgDog:hover {
+        opacity: 0.7;
+    }
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+    .close:hover,
+    .close:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px) {
+    .modal-content {
+        width: 100%;
+    }
+}
+
+
+/*********************Anmälan********************************/
+
+div#pageContent {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 2000px !important;
+    margin-top: 28px;
+    margin-bottom: 28px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color:red;
+}
+
+
+iframe {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 2000px !important;
+    margin-top: 28px;
+    margin-bottom: 28px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+
+/*#anmalanFormular {
+    max-width: 2000px !important;
+    background-color: red;
+}
+
+.formAnmalan {
+    max-width: 2000px !important;
+    background-color: yellow;
+}*/
 
 
 

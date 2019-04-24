@@ -140,6 +140,18 @@
         window.addEventListener("resize", init);
 
         init();
+
+        // Visar eller döljer logga
+        document.getElementById("k9ToggleBtn").onclick = function () {
+
+            var logoDiv = document.getElementById("showImageLogo");
+            if (logoDiv.style.display === "none") {
+                logoDiv.style.display = "block";
+            } else {
+                logoDiv.style.display = "none";
+            }
+        };
+
     });
 
 })(window, document);
