@@ -27,6 +27,11 @@ namespace K9Biathlon.Controllers
 
         }
 
+        public IActionResult IndexTemp()
+        {
+            return View();
+        }
+
         public IActionResult Index()
         {
             ViewBag.BackgroundImage = "Segersjö1.jpg";

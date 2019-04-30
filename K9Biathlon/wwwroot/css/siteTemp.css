@@ -1,0 +1,64 @@
+﻿body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.bg {
+    /* The image used */
+    background-image: url("../img/Bakgrundsbilder/segersjo_tavling_6.jpg");
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.Info-Text {
+    margin: auto;
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+    color: #fff;
+    padding: 10px 0;
+    /*height: 150px;*/
+    font-family: 'Sitka Subheading' !important;
+    display: block !important;
+
+}
+
+
+.display-3 {
+    font-size: 3.6rem;
+    font-weight: 200;
+    line-height: 1.2;
+}
+
+.display-4 {
+    font-size: 3rem;
+    font-weight: 100;
+    line-height: 1.2;
+}
+
+.captionText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 30%;
+    width: 50%;
+    margin: -15% 0 0 -25%;
+
+}
+.backgroundFilter {
+    /*background-color: black !important;*/
+    background: rgba(0, 0, 0, 0.2);
+    /*opacity: 0.2;*/
+    z-index: 10;
+    width: inherit;
+    height: inherit;
+    position: relative;
+}
+
+
